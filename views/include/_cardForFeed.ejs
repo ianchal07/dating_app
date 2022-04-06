@@ -1,0 +1,17 @@
+<% for(var i = 0; i < users_data.length; i++) { %>
+<div class="card my-1 align-items-center">
+    <img src="uploads/<%=users_data[i].profile_pic%>"" class="img-fluid align-self-center"
+    alt="...">
+    <div class="carousel-caption text-center">
+       <a href="http://localhost:3000/user?id=<%=users_data[i].username%>" class="link-light" target="_blank" rel="noopener noreferrer"><h1 ><%=users_data[i].firstname.charAt(0).toUpperCase()+users_data[i].firstname.slice(1)%>,<%=users_data[i].age%></h1></a> 
+        <p><%=users_data[i].interest%></p>
+            <div><a href="http://localhost:3000/like?id=<%=data.username%>&password=<%=data.password%>&f_id=<%=users_data[i].username%>&like=0" <button class="btn btn-lg btn-outline-danger mx-4"> <svg
+                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-x"
+                viewBox="0 0 16 16">
+                <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg></button></a><a href="http://localhost:3000/like?id=<%=data.username%>&password=<%=data.password%>&f_id=<%=users_data[i].username%>&like=1"><button class="btn btn-lg btn-outline-success mx-4"
+            onclick="like()">Like</button></a></div>
+        </div>
+    </div>
+    <% } %>
