@@ -12,4 +12,5 @@ var Storage=multer.diskStorage({
 })
 // console.log(Storage.destination); 
 var upload=multer({ storage: Storage })
+// console.log(upload);
 module.exports=upload;

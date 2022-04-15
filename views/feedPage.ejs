@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title>feed page</title>
     <style>
         body {
             font-family: 'Varela Round', sans-serif;
@@ -110,42 +110,12 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-5-strong "
-            style="background-image: linear-gradient(to bottom right, #1b9ec1, #23758c); border-bottom:2px solid #1b9ec1;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/milaap_web.png" alt="" width="103px" height="40px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item mx-1">
-                            <a class="nav-link active" aria-current="page" href="feed.html"><img src="img/home.PNG"
-                                    alt="" width="20px" height="20px"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link" href="mesage.html"><img src="img/messenger.PNG" alt="" width="24px"
-                                    height="24px"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link" href="profile.html"><img src="img/img.jpeg" alt="" width="30px"
-                                    height="30px" style="border-radius: 100%; border: 2px solid black;"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link ">Sign out</a>
-                        </li>
-                    </ul>
-
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    
+        <%-include('include/_navBar')%>
     <!-- <include this to your file -->
-    <div class="container-fluid d-flex flex-column">
+ 
+ 
+        <div class="container-fluid d-flex flex-column" style="background-color: #b1c0bdca;">
         <%- include('include/_cardForFeed') %>
     </div>
 

@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title><%=user.firstname+' '+user.lastname%></title>
     <style>
     body{
         font-family: 'Varela Round', sans-serif;
@@ -59,53 +59,20 @@ btn-group-lg>.btn, .btn-lg {
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-5-strong "
-            style="background-color: #fafafa; border-bottom:2px solid rgba(var(--b6a,219,219,219),1);">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/feed?id=<%=data.username%>&password=<=%data.password%>."><img src="img/milaap_web.png" alt="" width="103px" height="40px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item mx-1">
-                            <a class="nav-link active" aria-current="page" href="/feed?id=<%=data.username%>&password=<%=data.password%>"><img src="img/home.PNG" alt=""
-                                    width="20px" height="20px"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link" href="mesage.html"><img src="img/messenger.PNG" alt="" width="24px"
-                                    height="24px"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link" href="profile.html"><img src="/uploads/<%=data.profile_pic%>" alt="" width="30px" height="30px"
-                                    style="border-radius: 100%; border: 2px solid black;"></a>
-                        </li>
-                        <li class="nav-item mx-1">
-                            <a class="nav-link ">Sign out</a>
-                        </li>
-                    </ul>
-
-
-                </div>
-            </div>
-        </nav>
-    </header>
+  <%-include('include/_navBar')%>
 <div class="container align-items-center">
     <div class=" container row text-center d-flex">
         <div class="col-lg-4" style="margin-left: 16%;">
-            <a class="nav-link" href="#"><img src="/uploads/<%=data.profile_pic%>" alt="" width="150px" height="150px"
+            <a class="nav-link" href="#"><img src="/uploads/<%=user.profile_pic%>" alt="" width="150px" height="150px"
                 style="border-radius: 100%; border: 2px solid black;"></a>
                 
             </div>
             <div class="col-lg-4">
-<h1><%=data.username%><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#edit_profile"> edit profile</button></h1>
+<h1><%=user.username%><button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#edit_profile"> edit profile</button></h1>
 <br>
-<h4><%=data.firstname+' '+data.lastname%></h4>
+<h4><%=user.firstname+' '+user.lastname%></h4>
 <p>
-    <%=data.interest%>
+    <%=user.interest%>
 </p>
       </div><!-- /.row -->
 </div>
@@ -193,7 +160,7 @@ btn-group-lg>.btn, .btn-lg {
         <div class="modal-body">
     
             <main class="form-signin text-center">
-                <form action="/user/change_profile_pic?id=<%=data.username%>&password=<%=data.password%>" method="post"  enctype="multipart/form-data">
+                <form action="/user/change_profile_pic?id=<%=user.username%>&password=<%=user.password%>" method="post"  enctype="multipart/form-data">
                   <h1 class="h3 mb-3 fw-normal text-muted">Change profile picture</h1>
               
                   <div class="form-floating my-2">
@@ -222,7 +189,7 @@ btn-group-lg>.btn, .btn-lg {
         <div class="modal-body">
     
             <main class="form-signin text-center">
-              <form action="/user/add_post?id=<%=data.username%>&password=<%=data.password%>" method="post"  enctype="multipart/form-data">
+              <form action="/user/add_post?id=<%=user.username%>&password=<%=user.password%>" method="post"  enctype="multipart/form-data">
                   <h1 class="h3 mb-3 fw-normal text-muted">add new post</h1>
               
                   <div class="form-floating my-2">
@@ -251,7 +218,7 @@ btn-group-lg>.btn, .btn-lg {
         <div class="modal-body">
     
             <main class="form-signin text-center">
-                <form action="/user/edit_interest?id=<%=data.username%>&password=<%=data.password%>" method="post" >
+                <form action="/user/edit_interest?id=<%=user.username%>&password=<%=user.password%>" method="post" >
                   <h1 class="h3 mb-3 fw-normal text-muted">Please enter interests with space word limit 200</h1>
               
             

@@ -8,7 +8,7 @@ const PORT=process.env.PORT||3000;
 const connectDB = require('./server/database/connection');
 
 // for connecting with database->
-connectDB.connect();
+// connectDB.connect();
 
 // for dealing form data->
 app.use(bodyParser.urlencoded({ extended: true }));//try with false also
@@ -22,10 +22,10 @@ app.set("view engine", "ejs")
 
 // for loading assets->
 app.use('/css', express.static(path.resolve(__dirname, "assets/css")));
-app.use('/image', express.static(path.resolve(__dirname, "assets/image")));
+app.use('/img', express.static(path.resolve(__dirname, "assets/image")));
 app.use('/js', express.static(path.resolve(__dirname, "assets/js")));
 app.use('/uploads', express.static(path.resolve(__dirname, "assets/uploads")));
-
+  
 
 
 // load routers

@@ -1,0 +1,36 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-5-strong "
+        style="background-color: #fafafa; border-bottom:2px solid rgba(var(--b6a,219,219,219),1);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/feed?id=<%=user.username%>&password=<=%user.password%>."><img
+                    src="img/brand_img.png" alt="" width="103px" height="40px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" aria-current="page"
+                            href="/feed?id=<%=user.username%>&password=<%=user.password%>"><img src="img/home.PNG"
+                                alt="" width="20px" height="20px"></a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="/friends?id=<%=user.username%>&password=<%=user.password%>"><img
+                                src="img/messenger.PNG" alt="" width="24px" height="24px"></a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="/user?id=<%=user.username%>&password=<%=user.password%>"><img src="/uploads/<%=user.profile_pic%>" alt=""
+                                width="30px" height="30px" style="border-radius: 100%; border: 2px solid black;"></a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a hrerf='/' class="nav-link ">Sign out</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+</header>

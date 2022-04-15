@@ -5,21 +5,20 @@ exports.user_id = (req, res) => {
     if (req.query.id && req.query.password) {
         const id = req.query.id;
         const password = req.query.password;
-        console.log(id);
         connectDB.query('select * from users where username=? and password=?', [id, password], (err, result) => {
             if (err || (result.length === 0)) res.status(500).render('Landingpage', { 'message': 'invaild credentials' });
             else {
                 data = result[0];
-             
+
                 connectDB.query('select * from images where user_id=?', [id], (err, result) => {
                     if (err) console.log(err);
                     else {
-                    
-                       
-                        return res.status(200).render('userProfile', { 'data': data,'postData': result });
+
+
+                        return res.status(200).render('userProfile', { 'user': data, 'postData': result });
                     }
                 })
-            
+
             }
         })
     }
@@ -34,11 +33,11 @@ exports.user_id = (req, res) => {
                 connectDB.query('select * from images where user_id=?', [id], (err, result) => {
                     if (err) console.log(err);
                     else {
-                    
-                        return res.status(200).render('showUser', { 'data': data, 'postData':result });
+
+                        return res.status(200).render('showUser', { 'data': data, 'postData': result });
                     }
                 })
-    
+
             }
 
         });
@@ -55,8 +54,7 @@ exports.users = (req, res) => {
                     if (err || (result.length === 0)) res.status(500).render('Landingpage', { 'message': 'invaild credentials' });
                     else {
                         users_data = results;
-                        console.log(result);
-                        res.render('feedPage', { 'users_data': users_data, 'data': result[0] });
+                        res.render('feedPage', { 'users_data': users_data, 'user': result[0] });
                     }
                 })
             }
@@ -122,6 +120,27 @@ exports.update_interest = (req, res) => {
                 })
             }
         })
+    }
+
+}
+
+exports.sendMessage=(req,res)=>{
+    if (req.query.id && req.query.password && req.query.fid) {
+        const id = req.query.id;
+        const fid = req.query.fid;
+        const password = req.query.password;
+        connectDB.query('select * from users where username=? and password=?', [id, password], (err, result) => {
+            if (err || (result.length === 0)) res.status(500).render('Landingpage', { 'message': 'invaild credentials' });
+            else {
+                connectDB.promise().query('insert into messages ( from_user_id, to_user_id, message) values(?,?,?)',[id,fid,req.body.message]).then(([result])=>{
+                   var link="http://localhost:3000/chats?id="+id+"&password="+password+"&fid="+fid;
+                    res.redirect(link);
+                })
+
+
+
+            }
+        });
     }
 
 }

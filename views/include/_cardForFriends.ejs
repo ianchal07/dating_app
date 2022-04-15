@@ -1,0 +1,49 @@
+
+<% for(var i = 0; i < friendsData.length; i++) { %>
+<div class="nearby-user">
+    <div class="row">
+        <div class="col-md-2 col-sm-2">
+            <img src="uploads/<%=friendsData[i].profile_pic%>" alt="user_profile photo"
+                class="profile-photo-lg">
+        </div>
+        <div class="col-md-7 col-sm-7">
+            <h5><a href="http://localhost:3000/user?id=<%=friendsData[i].username%>" class="profile-link" target="_blank"><%=friendsData[i].firstname%> <%=friendsData[i].lastname%>, <%=friendsData[i].age%></a></h5>
+            <p class="text-muted"><%=friendsData[i].interest%></p>
+        </div>
+        <div class="col-md-3 col-sm-3">
+          <a href="chats?id=<%=user.username%>&password=<%=user.password%>&fid=<%=friendsData[i].username%>" >  <button class="btn btn-outline-primary pull-right">message</button></a>
+        </div>
+    </div>
+</div>
+<% } %>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

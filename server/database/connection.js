@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+
 const connection = mysql.createConnection({
     host: 'localhost', // host for connection
     port: 3306, // default port for mysql is 3306
@@ -16,4 +17,5 @@ connection.connect(function (err) {
         console.log('we are connected with database');
     }
 });
-module.exports=connection;   
+
+module.exports=connection; 
