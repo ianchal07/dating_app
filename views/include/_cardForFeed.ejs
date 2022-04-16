@@ -4,7 +4,7 @@
     <div class="carousel-caption text-center">
        <a href="http://localhost:3000/user?id=<%=users_data[i].username%>" class="link-light" target="_blank" rel="noopener noreferrer"><h1 ><%=users_data[i].firstname.charAt(0).toUpperCase()+users_data[i].firstname.slice(1)%>,<%=users_data[i].age%></h1></a> 
         <p><%=users_data[i].interest%></p>
-            <div><a href="http://localhost:3000/like?id=<%=user.username%>&password=<%=user.password%>&f_id=<%=users_data[i].username%>&like=0" <button class="btn btn-lg btn-outline-danger mx-4"> <svg
+            <div><a href="http://localhost:3000/like?id=<%=user.username%>&password=<%=user.password%>&f_id=<%=users_data[i].username%>&like=0" onclick="dislike()" <button class="btn btn-lg btn-outline-danger mx-4"> <svg
                 xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-x"
                 viewBox="0 0 16 16">
                 <path

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Mitra</title>
+    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <link rel="stylesheet" href="./css/ionicons.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+#video-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    /* min-height: 100%; */
+    width: 100%;
+    z-index: 1;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.60em;
+}
+@media (min-width: 768px){
+.navbar-header > .navbar-brand {
+    color: rgba(255,255,255,0.7);
+    padding: 7px;
+}}
+@media (min-width: 768px){
+header .header-content {
+    position: absolute;
+    top: 75%;
+    padding: 0px 1px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+}
+    </style>
+  </head>
+  <body>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#first"><h1 class="cursive" style="margin-top: -1%;padding:0%;">Mitra</h1> </a>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll cursive" href="#last">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="first">
+        <div class="header-content">
+            <div class="inner">
+                <h1 class="cursive">Start something interesting!</h1>
+                <h4 >a idea that help you to make new friends</h4>
+                <hr>
+                <a href="#getstarted" id="toggleVideo" data-toggle="modal" class="btn btn-primary btn-xl">Get started</a> &nbsp; <a href="#login" id="toggleVideo" data-toggle="modal"  class="btn btn-primary btn-xl page-scroll"> login  </a>
+            </div>
+        </div>
+        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="img/friends1.jpg"  id="video-background">
+            <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+    </header>
+   
+    <section id="last">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="margin-top-0 wow fadeIn">Get in Touch</h2>
+                    <hr class="primary">
+                    <p>We love feedback. Fill out the form below and we'll get back to you as soon as possible.</p>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <form class="contact-form row"  method="post" action="/feedback">
+                        <div class="col-md-4">
+                            <label></label>
+                            <input name="name" type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col-md-4">
+                            <label></label>
+                            <input name="email" type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="col-md-4">
+                            <label></label>
+                            <input name="phone" type="text" class="form-control" placeholder="Phone">
+                        </div>
+                        <div class="col-md-12">
+                            <label></label>
+                            <textarea name="message" class="form-control" rows="9" placeholder="Your message here.."></textarea>
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <label></label>
+                            <button type="submit"  class="btn btn-primary btn-block btn-lg">Send</i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+         
+    </footer>
+    
+    <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        	<div class="modal-body">
+        		<h2 class="text-center">about heading</h2>
+        		<h5 class="text-center">
+        		    A free,
+        		</h5>
+        		<p class="text-justify">
+        		    this is about
+        		</p>
+        		<p class="text-center"></p>
+        		<br/>
+        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true"> ok </button>
+        	</div>
+        </div>
+        </div>
+    </div>
+   
+
+
+    <!-- this is for sign-up -->
+    <div id="getstarted" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title cursive" id="exampleModalLabel">Mitra</h1>
+              </div>
+        	<div class="modal-body">
+                <main class="form-signin text-start">
+                    <form   action="/sign-up" method="post">
+                      <h1 class="h3 mb-3 fw-normal text-muted cursive">Please sign up</h1>
+                      <div class="form-floating my-2">
+                          <label class="cursive"  for="floatingInput">username must be unique</label>
+                        <input name="username" type="text" class="form-control" placeholder="username">
+                      </div>
+
+                      <div class="form-floating my-2">
+                          <label  class="cursive" for="floatingInput">First name</label>
+                        <input name="firstname" type="text" class="form-control" placeholder="First   name">
+                      </div>
+                      <div class="form-floating my-2">
+                          <label class="cursive"  for="floatingInput">Last name</label>
+                        <input name="lastname" type="text" class="form-control" placeholder="Last   name">
+                      </div>
+
+
+
+                      <div class="form-floating my-2">
+                          <label class="cursive"  for="floatingInput">Age</label>
+                        <input name="age" type="number" class="form-control" placeholder="age" min="0" max="100">
+                      </div>
+                      
+                      <div  class="form-floating my-2">
+                          <label class="cursive"  for="floatingInput">Email address</label>
+                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      </div>
+                      <div  class="form-floating my-2 ">
+                          <label class="cursive"  for="floatingPassword">Password</label>
+                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                      </div>
+                      <div  class="form-floating my-2 ">
+                          <label  class="cursive" for="floatingPassword"> Confirm Password</label>
+                        <input name="confirmpassword" type="password" class="form-control" id="floatingPassword" placeholder=" confirm Password">
+                      </div>
+                      <div class="btn-group center-block">
+                        <label  class="cursive" class="btn btn-outline-danger" for="option1">gender</label>
+                      
+                        <label  class="cursive mx-3" style="margin: 0% 3%;"  for="option2">Male</label>
+                        <input  name="gender" type="radio" class="btn-check btn-lg" id="option2" value="male" autocomplete="off" />
+                      
+                        <label  class="cursive" style="margin: 0% 3%;" for="option3">Female</label>
+                        <input  name="gender" type="radio" class="btn-check" id="option3" value="female" autocomplete="off" />
+                      </div>
+                      <button class="py-2 w-75 my-5 btn btn-lg btn-primary center-block" type="submit">signup</button>
+        
+                    </form>
+                </main>
+        		<br/>
+        		<button class="btn btn-primary center-block" type="button" data-dismiss="modal" aria-hidden="true">X</button>
+        	</div>
+        </div>
+        </div>
+    </div>
+<!-- this is for login  -->
+    <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title cursive" id="exampleModalLabel">Mitra</h1>
+               
+              </div>
+        	<div class="modal-body">
+                <main class="form-signin text-start">
+                    <form action="/login" method="post">
+                      <h1 class="h3 mb-3 fw-normal cursive text-muted">Please sign in</h1>
+                  
+                      <div class="form-floating my-2">
+                          <label for="floatingInput" class="cursive">Email address</label>
+                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      </div>
+                      <div class="form-floating my-2 ">
+                          <label for="floatingPassword" class="cursive">Password</label>
+                          <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                          <label></label>
+                      </div>
+                  
+                      <button class="py-2 w-75 my-5 btn btn-lg btn-primary center-block" type="submit">Sign in</button>
+        
+                    </form>
+                </main>
+        		<br/>
+        		<button class="btn btn-primary center-block" type="button" data-dismiss="modal" aria-hidden="true">X</button>
+        	</div>
+        </div>
+        </div>
+    </div>
+
+    <!--scripts loaded here -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.easing.min.js"></script>
+  
+  </body>
+</html>

@@ -60,6 +60,10 @@ exports.users = (req, res) => {
             }
         })
     }
+    else {
+        return res.status(404).render('error', { 'error_code': '404', 'messageDetails': 'SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE', 'message': 'Oops! This Page Could Not Be Found' })
+
+    }
 }
 exports.change_profile_pic = (req, res) => {
     console.log(req.file.filename);
@@ -81,9 +85,13 @@ exports.change_profile_pic = (req, res) => {
 
         })
     }
+    else {
+        return res.status(404).render('error', { 'error_code': '404', 'messageDetails': 'SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE', 'message': 'Oops! This Page Could Not Be Found' })
+
+    }
 }
 exports.add_picture = (req, res) => {
-    console.log(req.file.filename);
+    // console.log(req.file.filename);
     if (req.query.id && req.query.password) {
         const id = req.query.id;
         const password = req.query.password;
@@ -101,6 +109,10 @@ exports.add_picture = (req, res) => {
             }
 
         })
+    }
+    else {
+        return res.status(404).render('error', { 'error_code': '404', 'messageDetails': 'SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE', 'message': 'Oops! This Page Could Not Be Found' })
+
     }
 }
 exports.update_interest = (req, res) => {
@@ -121,10 +133,14 @@ exports.update_interest = (req, res) => {
             }
         })
     }
+    else {
+        return res.status(404).render('error', { 'error_code': '404', 'messageDetails': 'SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE', 'message': 'Oops! This Page Could Not Be Found' })
+
+    }
 
 }
 
-exports.sendMessage=(req,res)=>{
+exports.sendMessage = (req, res) => {
     if (req.query.id && req.query.password && req.query.fid) {
         const id = req.query.id;
         const fid = req.query.fid;
@@ -132,8 +148,8 @@ exports.sendMessage=(req,res)=>{
         connectDB.query('select * from users where username=? and password=?', [id, password], (err, result) => {
             if (err || (result.length === 0)) res.status(500).render('Landingpage', { 'message': 'invaild credentials' });
             else {
-                connectDB.promise().query('insert into messages ( from_user_id, to_user_id, message) values(?,?,?)',[id,fid,req.body.message]).then(([result])=>{
-                   var link="http://localhost:3000/chats?id="+id+"&password="+password+"&fid="+fid;
+                connectDB.promise().query('insert into messages ( from_user_id, to_user_id, message) values(?,?,?)', [id, fid, req.body.message]).then(([result]) => {
+                    var link = "http://localhost:3000/chats?id=" + id + "&password=" + password + "&fid=" + fid;
                     res.redirect(link);
                 })
 
@@ -141,6 +157,10 @@ exports.sendMessage=(req,res)=>{
 
             }
         });
+    }
+    else {
+        return res.status(404).render('error', { 'error_code': '404', 'messageDetails': 'SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE', 'message': 'Oops! This Page Could Not Be Found' })
+
     }
 
 }
