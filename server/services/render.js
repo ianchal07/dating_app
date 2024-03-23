@@ -11,7 +11,90 @@ exports.homeroutes = (req, res) => {
     return res.render('index');
 }
 
+connectDB.query('SHOW TABLES LIKE "users"', (error, results) => {
+    if (error) {
+        console.error('Error checking if table exists:', error);
+        return;
+    }
+    if (results.length === 0) {
+        console.log('Users table does not exist, creating...');
+        connectDB.query('CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), firstname VARCHAR(255), lastname VARCHAR(255), email_id VARCHAR(255), password VARCHAR(255), age INT, gender VARCHAR(10), profile_pic VARCHAR(255), interest VARCHAR(255))', (error, results) => {
+            if (error) {
+                console.error('Error creating users table:', error);
+                return;
+            }
+            console.log('Users table created successfully');
+        });
+    }
+});
 
+connectDB.query('SHOW TABLES LIKE "images"', (error, results) => {
+    if (error) {
+        console.error('Error checking if images table exists:', error);
+        return;
+    }
+    if (results.length === 0) {
+        console.log('Images table does not exist, creating...');
+        connectDB.query('CREATE TABLE images (id INT AUTO_INCREMENT PRIMARY KEY, photo_src VARCHAR(255), user_id VARCHAR(255))', (error, results) => {
+            if (error) {
+                console.error('Error creating images table:', error);
+                return;
+            }
+            console.log('Images table created successfully');
+        });
+    }
+});
+connectDB.query('SHOW TABLES LIKE "like_table"', (error, results) => {
+    if (error) {
+        console.error('Error checking if like_table exists:', error);
+        return;
+    }
+    if (results.length === 0) {
+        console.log('like_table table does not exist, creating...');
+        connectDB.query('CREATE TABLE like_table (id INT AUTO_INCREMENT PRIMARY KEY, like_by_user VARCHAR(255), like_or_not INT, liked_to VARCHAR(255))', (error, results) => {
+            if (error) {
+                console.error('Error creating like_table table:', error);
+                return;
+            }
+            console.log('like_table table created successfully');
+        });
+    }
+});
+
+// Check if match_table table exists, if not, create it
+connectDB.query('SHOW TABLES LIKE "match_table"', (error, results) => {
+    if (error) {
+        console.error('Error checking if match_table exists:', error);
+        return;
+    }
+    if (results.length === 0) {
+        console.log('match_table table does not exist, creating...');
+        connectDB.query('CREATE TABLE match_table (id INT AUTO_INCREMENT PRIMARY KEY, user_id VARCHAR(255), target_id VARCHAR(255))', (error, results) => {
+            if (error) {
+                console.error('Error creating match_table table:', error);
+                return;
+            }
+            console.log('match_table table created successfully');
+        });
+    }
+});
+
+connectDB.query('SHOW TABLES LIKE "messages"', (error, results) => {
+    if (error) {
+        console.error('Error checking if messages table exists:', error);
+        return;
+    }
+    if (results.length === 0) {
+        console.log('Messages table does not exist, creating...');
+        connectDB.query('CREATE TABLE messages (id INT AUTO_INCREMENT PRIMARY KEY, from_user_id VARCHAR(255), to_user_id VARCHAR(255), message TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)', (error, results) => {
+            if (error) {
+                console.error('Error creating messages table:', error);
+                return;
+            }
+            console.log('Messages table created successfully');
+        });
+    }
+});
 // for sign up new user=>
 exports.add_user = (req, res) => {
     var bool_user='';
@@ -30,7 +113,8 @@ exports.add_user = (req, res) => {
         if (password === confirmPassword&password!==bool_user) {
             connectDB.query('INSERT INTO users (username,firstname,lastname,email_id,password,age,gender) VALUES (?,?,?,?,?,?,?)', [username, firstname, lastname, email, password, age, gender], (error,
                 results) => {
-                if (error) return res.status(409).render('error', { 'message': 'user already exists','error_code':'409','messageDetails':'please try another username' });
+                if (error){ 
+                    return res.status(409).render('error', { 'message': 'user already exists','error_code':'409','messageDetails':'please try another username' });}
                 else {
                     return res.status(200).render('error', { 'message': 'account created successfully','error_code':'200','messageDetails':'please login ' });
                 }
